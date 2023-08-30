@@ -5,9 +5,11 @@ const axios = require("axios");
 
 router.get("/comics", async (req, res) => {
   const my_api_key = process.env.MY_API_KEY;
+  let filters = {};
+
   try {
     const response = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${my_api_key}`
+      `https://lereacteur-marvel-api.herokuapp.com/comics?&title=${search}apiKey=${my_api_key}`
     );
 
     res.status(200).json(response.data);
