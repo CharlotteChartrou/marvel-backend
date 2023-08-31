@@ -17,6 +17,4 @@ router.get("/comics/:characterId", async (req, res) => {
   }
 });
 
-//coucou
-
 module.exports = router;
