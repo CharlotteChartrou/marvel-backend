@@ -38,7 +38,7 @@ const loginRoutes = require("./routes/login");
 app.subscribe(loginRoutes);
 
 app.all("*", (req, res) => {
-  return res.status(400).json("error");
+  return res.status(400).json(error.message);
 });
 
 app.listen(process.env.PORT, () => {
