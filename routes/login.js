@@ -16,7 +16,13 @@ router.post("/login", async (req, res) => {
     console.log(newHash);
 
     if (newHash === foundUser.hash) {
-      return res.status(200).json("le password est bon");
+      return res
+        .status(200)
+        .json({
+          _id: foundUser._id,
+          token: foundUser.token,
+          account: foundUser.account,
+        });
     } else {
       return res.status(400).json("le password n'est pas bon");
     }
