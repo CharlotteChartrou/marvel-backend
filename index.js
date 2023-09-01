@@ -8,6 +8,7 @@ app.use(express.json());
 app.use(cors());
 
 mongoose.connect(process.env.MONGODB_URI);
+
 app.get("/", (req, res) => {
   try {
     return res.json(200).json("welcome to Marvel");
@@ -35,7 +36,7 @@ const signupRoutes = require("./routes/signup");
 app.use(signupRoutes);
 
 const loginRoutes = require("./routes/login");
-app.subscribe(loginRoutes);
+app.use(loginRoutes);
 
 app.all("*", (req, res) => {
   return res.status(400).json(error.message);
