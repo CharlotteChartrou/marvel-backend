@@ -9,13 +9,12 @@ router.post("/favorites", async (req, res) => {
    
 
     const newFavorites = new Favorites({
-      description: req.body.description,
-      thumbnail: { path: req.body.path, extension: req.body.extension },
-      title: req.body.title,
-      owner: user,
+      id : req.body.id,
+     
     });
 
     await newFavorites.save();
+  console.log(newFavorites)
     res.status(200).json(newFavorites);
   } catch (error) {
     res.status(400).json(error.message);
@@ -34,4 +33,3 @@ router.get("/favorites", async (req, res) => {
 }); 
 
 module.exports = router;
-//ccc
