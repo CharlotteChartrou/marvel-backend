@@ -38,6 +38,9 @@ app.use(signupRoutes);
 const loginRoutes = require("./routes/login");
 app.use(loginRoutes);
 
+const favoritesRoutes = require("./routes/favorites"); 
+app.use(favoritesRoutes)
+
 app.all("*", (req, res) => {
   return res.status(400).json(error.message);
 });
